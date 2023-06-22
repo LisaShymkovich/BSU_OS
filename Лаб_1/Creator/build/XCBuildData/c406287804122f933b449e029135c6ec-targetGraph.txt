@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+Creator in Creator, no dependencies
+Reporter in Reporter, no dependencies
+Lab_1 in Lab_1, depends on:
+Creator in Creator (explicit)
+Reporter in Reporter (explicit)

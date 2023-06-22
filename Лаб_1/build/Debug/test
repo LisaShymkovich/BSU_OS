@@ -1,0 +1,4 @@
+Report: "testbin":
+Number: 1, Name: Lisa, worked hours: 20, pay: 280$
+Number: 2, Name: Oleg, worked hours: 40, pay: 560$
+Total Pay: 840$
