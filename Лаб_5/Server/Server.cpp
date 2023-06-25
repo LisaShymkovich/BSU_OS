@@ -56,8 +56,8 @@ void init() {
 }
 
 struct PipeInfo {
-	HANDLE hReadHandle;		// дескриптор для чтения из канала
-	HANDLE hWriteHandle;	// дескриптор для записи в канал
+	HANDLE hReadHandle;		
+	HANDLE hWriteHandle;	
 	int		myNum;
 };
 
@@ -107,7 +107,7 @@ DWORD WINAPI serverThread(LPVOID pr_)
 			WriteFile(pr.hWriteHandle, &c, sizeof(c), &bytes, 0);
 			if (c.result) {
 				countOfReaders[pos]++;
-				WaitForSingleObject(hWriteAccess[pos], INFINITE);		//Ждем пока закончится запись
+				WaitForSingleObject(hWriteAccess[pos], INFINITE);		
 				ResetEvent(hReadAccess[pos]);
 				read(st, pos);
 				WriteFile(pr.hWriteHandle, &st, sizeof(st), &bytes, 0);
@@ -121,12 +121,12 @@ DWORD WINAPI serverThread(LPVOID pr_)
 			c.result = lookUp(c.num, st, pos);
 			WriteFile(pr.hWriteHandle, &c, sizeof(c), &bytes, 0);
 			if (c.result) {
-				WaitForSingleObject(hReadAccess[pos], INFINITE);		//Ждем пока закончится чтение
-				WaitForSingleObject(hWriteAccess[pos], INFINITE);		//Ждем пока закончится запись
+				WaitForSingleObject(hReadAccess[pos], INFINITE);		
+				WaitForSingleObject(hWriteAccess[pos], INFINITE);		
 				ResetEvent(hWriteAccess[pos]);
 				read(st, pos);
 				WriteFile(pr.hWriteHandle, &st, sizeof(st), &bytes, 0);
-				//Закончили писать
+				//Г‡Г ГЄГ®Г­Г·ГЁГ«ГЁ ГЇГЁГ±Г ГІГј
 				ReadFile(pr.hReadHandle, (char*)&st, sizeof(st), &bytes, 0);
 				write(st, pos);
 				SetEvent(hWriteAccess[pos]);
