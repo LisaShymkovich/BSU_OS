@@ -36,20 +36,20 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	HANDLE hWriteHandle = CreateFile(WritePipe, // имя канала
-		GENERIC_WRITE, // читаем и записываем в канал
+	HANDLE hWriteHandle = CreateFile(WritePipe, // ГЁГ¬Гї ГЄГ Г­Г Г«Г 
+		GENERIC_WRITE, // Г·ГЁГІГ ГҐГ¬ ГЁ Г§Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Гў ГЄГ Г­Г Г«
 		FILE_SHARE_READ,
-		(LPSECURITY_ATTRIBUTES)NULL, // защита по умолчанию
-		OPEN_EXISTING, // открываем существующий канал
-		0, // атрибуты по умолчанию
+		(LPSECURITY_ATTRIBUTES)NULL,
+		OPEN_EXISTING, 
+		0, 
 		(HANDLE)NULL);
 
 	HANDLE hReadHandle = CreateFile(ReadPipe,
-		GENERIC_READ, // читаем и записываем в канал
+		GENERIC_READ, 
 		FILE_SHARE_WRITE,
-		(LPSECURITY_ATTRIBUTES)NULL, // защита по умолчанию
-		OPEN_EXISTING, // открываем существующий канал
-		0, // атрибуты по умолчанию
+		(LPSECURITY_ATTRIBUTES)NULL,
+		OPEN_EXISTING, 
+		0, 
 		(HANDLE)NULL);
 
 
